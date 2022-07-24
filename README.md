@@ -1,7 +1,7 @@
 
 # OnboardingPlatform - Eden 
 
-## Deployed at - onboard-with-eden.surge.sh
+## Deployed at - https://onboard-with-eden.surge.sh/
 
 Features :
  1. Static page with design functionality
