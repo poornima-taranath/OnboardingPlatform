@@ -14,12 +14,14 @@ const FourthForm = (props) => {
 
   return (
     <Form
+    layout='vertical'
+    className='main-form'
       name="basic"
       labelCol={{
-        span: 6,
+        span: 10,
       }}
       wrapperCol={{
-        span: 14    ,
+        span: 20   ,
       }}
       initialValues={{
         remember: true,
@@ -28,13 +30,9 @@ const FourthForm = (props) => {
       onFinishFailed={onFinishFailed}
       autoComplete="off"
     >
-        <div> How are you planning to use Eden?</div>
-        <div>We'll streamline your setup experience accordingly</div>
-      <Form.Item
-      >
-        <div>CHild box</div>
-      </Form.Item>
-
+        <div className='form-main-text'> Congratulations, {props.fullName} ! </div>
+        <div className='subtitle-text'>You have completed onboarding, you can start using Eden now</div>
+  
       <Form.Item
         wrapperCol={{
           offset: 2,
@@ -42,7 +40,7 @@ const FourthForm = (props) => {
         }}
       >
         <Button type="primary" htmlType="submit" className='next-step-btn'>
-          Done
+          Launch Eden
         </Button>
       </Form.Item>
     </Form>

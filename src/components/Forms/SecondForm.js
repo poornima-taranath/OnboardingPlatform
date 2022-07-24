@@ -12,14 +12,22 @@ const SecondForm = (props) => {
     console.log('Failed:', errorInfo);
   };
 
+  const prefixSelector = (
+    <Form.Item name="prefix" noStyle>
+      <div style={{color:'darkgray'}}>www.eden.com/</div>
+    </Form.Item>
+  );
+
   return (
     <Form
+    layout='vertical'
+    className='main-form'
       name="basic"
       labelCol={{
-        span: 6,
+        span: 8,
       }}
       wrapperCol={{
-        span: 14    ,
+        span: 20    ,
       }}
       initialValues={{
         remember: true,
@@ -28,15 +36,20 @@ const SecondForm = (props) => {
       onFinishFailed={onFinishFailed}
       autoComplete="off"
     >
-    <h2> Let's set up a home for all your work</h2>
-    <div>You can always create another workspace later</div>
+    <h2 className='form-main-text'> Let's set up a home for all your work</h2>
+    <div className='subtitle-text'>You can always create another workspace later</div>
+
       <Form.Item
-        label="Full Name"
-        name="fullName"
+        label="WorkSpace Name"
+         name="workspaceName"
+         wrapperCol={{
+            offset: 2,
+            span: 20,
+          }}
         rules={[
           {
             required: true,
-            message: 'Please input your full name!',
+            message: 'Please input your workspace name',
           },
         ]}
       >
@@ -44,16 +57,15 @@ const SecondForm = (props) => {
       </Form.Item>
 
       <Form.Item
-        label="Display Name"
-        name="displayName"
-        rules={[
-          {
-            required: true,
-            message: 'Please input your name!',
-          },
-        ]}
+       wrapperCol={{
+        offset: 2,
+        span: 20,
+        }}
+       
+        label="WorkSpace Url"
+        name="workspaceUrl"
       >
-        <Input />
+        <Input  addonBefore={prefixSelector} />
       </Form.Item>
 
       <Form.Item

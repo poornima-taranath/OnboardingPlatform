@@ -8,23 +8,25 @@ import ThirdForm from '../Forms/ThirdForm';
 import FourthForm from '../Forms/FourthForm';
 const { Step } = Steps;
 
-const steps = [
-  {
-    content: ({prev,next})=><FirstForm next={next} prev={prev}/>
-  },
-  {
-    content: ({prev,next})=><SecondForm next={next} prev={prev}/>
-  },
-  {
-    content:  ({prev,next})=><ThirdForm next={next} prev={prev}/>
-  },
-  {
-    content: ({prev,next})=><FourthForm next={next} prev={prev}/>
-  },
-];
-
 const ProgressSteps = () => {
   const [current, setCurrent] = useState(0);
+  const [fullName,setFullName]= useState('')
+
+  const steps = [
+    {
+      content: ({prev,next})=><FirstForm next={next} prev={prev} setFullName={setFullName}/>
+    },
+    {
+      content: ({prev,next})=><SecondForm next={next} prev={prev}/>
+    },
+    {
+      content:  ({prev,next})=><ThirdForm next={next} prev={prev}/>
+    },
+    {
+      content: ({prev,next})=><FourthForm next={next} prev={prev} fullName={fullName}/>
+    },
+  ];
+  
 
   const next = () => {
     if (current >=0 && current<steps.length) {

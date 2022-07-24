@@ -15,12 +15,14 @@ const ThirdForm = (props) => {
 
   return (
     <Form
+     layout='vertical'
+      className='main-form'
       name="basic"
       labelCol={{
-        span: 6,
+        span: 10,
       }}
       wrapperCol={{
-        span: 14    ,
+        span: 20   ,
       }}
       initialValues={{
         remember: true,
@@ -29,18 +31,25 @@ const ThirdForm = (props) => {
       onFinishFailed={onFinishFailed}
       autoComplete="off"
     >
-        <div> How are you planning to use Eden?</div>
-        <div>We'll streamline your setup experience accordingly</div>
+        <div className='form-main-text'> How are you planning to use Eden?</div>
+        <div className='subtitle-text'>We'll streamline your setup experience accordingly</div>
       <Form.Item
+       wrapperCol={{
+        offset: 2,
+        span: 10,
+      }}
       >
+        <div>CHild box</div>
         <div>CHild box</div>
       </Form.Item>
 
       <Form.Item
-        label="WorkSpace URL"
-        name="displayName"
+        wrapperCol={{
+            offset: 2,
+            span: 10,
+          }}
       >
-        <Input />
+        <div>Child</div>
       </Form.Item>
 
       <Form.Item

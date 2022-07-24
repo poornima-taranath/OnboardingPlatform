@@ -2,16 +2,13 @@ import { Button, Checkbox, Form, Input } from 'antd';
 import React, { useState } from 'react';
 import 'antd/dist/antd.css';
 import './form.css'
-import useSelection from 'antd/lib/table/hooks/useSelection';
 
 const FirstForm = (props) => {
 
- 
- const [fullName,setFullName]= useState('')
 
   const onFinish = (values) => {
     console.log('Success:', values);
-    setFullName(values.fullName)
+    props.setFullName(values.fullName)
     props.next()
   };
 
@@ -21,13 +18,15 @@ const FirstForm = (props) => {
 
   return (
     <Form
-      name="basic"
       layout='vertical'
+      className='main-form'
+      name="basic"
+      
       labelCol={{
-        span: 6,
+        span: 14,
       }}
       wrapperCol={{
-        span: 14    ,
+        span: 20    ,
       }}
       initialValues={{
         remember: true,
@@ -37,12 +36,17 @@ const FirstForm = (props) => {
       autoComplete="off"
     >
       <Form.Item
+       className='first-form-tem'
         label="Full Name"
         name="fullName"
+        wrapperCol={{
+            span: 20,
+            offset:2
+          }}
         rules={[
           {
             required: true,
-            message: 'Please input your full name!',
+            message: 'Please input your full name',
           },
         ]}
       >
@@ -50,22 +54,27 @@ const FirstForm = (props) => {
       </Form.Item>
 
       <Form.Item
+        className='second-form-tem'
         label="Display Name"
         name="displayName"
+        wrapperCol={{
+            span: 20,
+            offset:2
+          }}
         rules={[
           {
             required: true,
-            message: 'Please input your name!',
+            message: 'Please input your name',
           },
         ]}
       >
-        <Input />
+        <Input/>
       </Form.Item>
 
       <Form.Item
         wrapperCol={{
-          offset: 2,
           span: 20,
+          offset:2
         }}
       >
         <Button type="primary" htmlType="submit" className='next-step-btn'>
