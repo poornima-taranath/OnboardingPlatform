@@ -1,5 +1,5 @@
-import { Button, Checkbox, Form, Input } from 'antd';
-import React, { useState } from 'react';
+import { Button, Form, Input } from 'antd';
+import React from 'react';
 import 'antd/dist/antd.css';
 import './form.css'
 
@@ -35,13 +35,15 @@ const FirstForm = (props) => {
       onFinishFailed={onFinishFailed}
       autoComplete="off"
     >
+    <h2 className='form-main-text'> Welcome, first things first...</h2>
+    <div className='subtitle-text'>You can always change them later</div>
       <Form.Item
        className='first-form-tem'
         label="Full Name"
         name="fullName"
         wrapperCol={{
-            span: 20,
-            offset:2
+            span: 24,
+           
           }}
         rules={[
           {
@@ -50,7 +52,7 @@ const FirstForm = (props) => {
           },
         ]}
       >
-        <Input />
+        <Input placeholder='Steve Jobs' />
       </Form.Item>
 
       <Form.Item
@@ -58,8 +60,8 @@ const FirstForm = (props) => {
         label="Display Name"
         name="displayName"
         wrapperCol={{
-            span: 20,
-            offset:2
+            span: 24,
+        
           }}
         rules={[
           {
@@ -68,13 +70,13 @@ const FirstForm = (props) => {
           },
         ]}
       >
-        <Input/>
+        <Input placeholder='Steve'/>
       </Form.Item>
 
       <Form.Item
         wrapperCol={{
-          span: 20,
-          offset:2
+          span: 24,
+         
         }}
       >
         <Button type="primary" htmlType="submit" className='next-step-btn'>

@@ -1,4 +1,4 @@
-import { Button, message, Steps } from 'antd';
+import {Steps } from 'antd';
 import React, { useState } from 'react';
 import 'antd/dist/antd.css';
 import './steps.css'
@@ -26,7 +26,7 @@ const ProgressSteps = () => {
       content: ({prev,next})=><FourthForm next={next} prev={prev} fullName={fullName}/>
     },
   ];
-  
+
 
   const next = () => {
     if (current >=0 && current<steps.length) {
@@ -42,11 +42,11 @@ const ProgressSteps = () => {
 
   return (
     <>
-      <Steps current={current}>
+      {current !== 3 ? <Steps current={current}>
         {steps.map((item) => (
           <Step key={item.title} title={item.title} />
         ))}
-      </Steps>
+      </Steps>:null}
       <div className="steps-content">{steps[current].content({prev,next})}</div>
     </>
   );

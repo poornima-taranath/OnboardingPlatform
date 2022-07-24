@@ -1,4 +1,4 @@
-import { Button, Checkbox, Form, Input } from 'antd';
+import { Button, Form, Input } from 'antd';
 import React from 'react';
 import 'antd/dist/antd.css';
 import './form.css'
@@ -43,8 +43,8 @@ const SecondForm = (props) => {
         label="WorkSpace Name"
          name="workspaceName"
          wrapperCol={{
-            offset: 2,
-            span: 20,
+            offset: 0,
+            span: 24,
           }}
         rules={[
           {
@@ -53,25 +53,25 @@ const SecondForm = (props) => {
           },
         ]}
       >
-        <Input />
+        <Input placeholder='Eden' />
       </Form.Item>
 
       <Form.Item
        wrapperCol={{
-        offset: 2,
-        span: 20,
+        offset: 0,
+        span: 24,
         }}
        
-        label="WorkSpace Url"
+        label="WorkSpace Url (optional)"
         name="workspaceUrl"
       >
-        <Input  addonBefore={prefixSelector} />
+        <Input  addonBefore={prefixSelector} placeholder='Example' />
       </Form.Item>
 
       <Form.Item
         wrapperCol={{
-          offset: 2,
-          span: 20,
+          offset: 0,
+          span: 24,
         }}
       >
         <Button type="primary" htmlType="submit" className='next-step-btn'>

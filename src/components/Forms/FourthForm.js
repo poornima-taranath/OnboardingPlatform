@@ -1,7 +1,9 @@
 import { Button, Checkbox, Form, Input } from 'antd';
+import {CheckOutlined} from '@ant-design/icons';
 import React from 'react';
 import 'antd/dist/antd.css';
 import './form.css'
+import Icon from '@ant-design/icons/lib/components/Icon';
 
 const FourthForm = (props) => {
   const onFinish = (values) => {
@@ -13,6 +15,9 @@ const FourthForm = (props) => {
   };
 
   return (
+<>
+   
+
     <Form
     layout='vertical'
     className='main-form'
@@ -30,9 +35,20 @@ const FourthForm = (props) => {
       onFinishFailed={onFinishFailed}
       autoComplete="off"
     >
-        <div className='form-main-text'> Congratulations, {props.fullName} ! </div>
-        <div className='subtitle-text'>You have completed onboarding, you can start using Eden now</div>
+    <Form.Item
+        wrapperCol={{
+          offset: 11,
+          span: 4,
+        }}
+      >
+      <div className='check-circle'>
+       <CheckOutlined  style={{color:'white'}}/>
+    </div>
+
+   </Form.Item>
   
+     <div className='form-main-text'> Congratulations, {props.fullName} ! </div>
+     <div className='subtitle-text'>You have completed onboarding, you can start using Eden now</div>
       <Form.Item
         wrapperCol={{
           offset: 2,
@@ -44,6 +60,7 @@ const FourthForm = (props) => {
         </Button>
       </Form.Item>
     </Form>
+    </>
   );
 };
 

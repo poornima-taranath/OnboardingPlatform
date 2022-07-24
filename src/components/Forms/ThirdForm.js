@@ -1,9 +1,36 @@
-import { Button, Checkbox, Form, Input } from 'antd';
-import React from 'react';
+import { Button, Form } from 'antd';
+import React, { useState } from 'react';
+import { UserOutlined,UsergroupDeleteOutlined } from '@ant-design/icons';
 import 'antd/dist/antd.css';
 import './form.css'
 
 const ThirdForm = (props) => {
+
+  const [planOption,setPlanOptionClicked]=useState(false)
+  const [choosenPlan,setChoosenPlan]=useState(0)
+
+  const data = [
+    {
+        title:'For Myself',
+        description:'Write better. Think clearly, stay organized.',
+        icon:  <UserOutlined />,
+        id:1
+
+    },
+    {
+        title:'With My Team',
+        description:'Wikis, docs, tasks, projects all in one place',
+        icon:  <UsergroupDeleteOutlined/>,
+        id:2
+
+    }
+  ]
+
+  const handlePlanSelection = (id) =>{
+    setPlanOptionClicked(!planOption)
+    setChoosenPlan(id)
+  }
+
   const onFinish = (values) => {
     console.log('Success:', values);
     props.next()
@@ -14,6 +41,21 @@ const ThirdForm = (props) => {
   };
 
   return (
+   <>
+       <div className='form-main-text'> How are you planning to use Eden?</div>
+        <div className='subtitle-text'>We'll streamline your setup experience accordingly</div>
+     <div className='choose-plan-container'>
+       { data.map( planName => 
+       <div key={planName.id} className={planOption && choosenPlan == planName.id ? 'choose-plan-box-clicked':"choose-plan-box" } 
+            onClick={()=>handlePlanSelection(planName.id)}>
+            <span className={planOption && choosenPlan == planName.id ? 'plan-icon-clicked':'' }>{planName.icon}</span>
+           <div className='plan-title'>
+             {planName.title}
+           </div>
+           <p className='plan-description'>{planName.description}</p>
+        </div>)}
+
+      </div> 
     <Form
      layout='vertical'
       className='main-form'
@@ -31,31 +73,10 @@ const ThirdForm = (props) => {
       onFinishFailed={onFinishFailed}
       autoComplete="off"
     >
-        <div className='form-main-text'> How are you planning to use Eden?</div>
-        <div className='subtitle-text'>We'll streamline your setup experience accordingly</div>
-      <Form.Item
-       wrapperCol={{
-        offset: 2,
-        span: 10,
-      }}
-      >
-        <div>CHild box</div>
-        <div>CHild box</div>
-      </Form.Item>
-
       <Form.Item
         wrapperCol={{
-            offset: 2,
-            span: 10,
-          }}
-      >
-        <div>Child</div>
-      </Form.Item>
-
-      <Form.Item
-        wrapperCol={{
-          offset: 2,
-          span: 20,
+          offset: 1,
+          span: 22,
         }}
       >
         <Button type="primary" htmlType="submit" className='next-step-btn'>
@@ -63,6 +84,7 @@ const ThirdForm = (props) => {
         </Button>
       </Form.Item>
     </Form>
+    </>
   );
 };
 
